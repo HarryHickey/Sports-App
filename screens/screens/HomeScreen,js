@@ -1,0 +1,40 @@
+import React, {useEffect, useState} from "react";
+import { View, Text, Button, FlatList, TouchableOpacity, StyleSheet, ActivityIndicator } from "react-native";
+import axios from "axios";
+
+const API_BASE = "http://192.168.X.Y:4000"; // <- replace with your computer IP if on physical device
+
+export default function HomeScreen({navigation}) {
+  const [leagues, setLeagues] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    axios.get(`${API_BASE}/leagues`)
+      .then(res => setLeagues(res.data))
+      .catch(err => alert("Could not reach API: " + err.message))
+      .finally(()=>setLoading(false));
+  }, []);
+
+  if(loading) return <View style={{flex:1,justifyContent:"center"}}><ActivityIndicator size="large"/></View>;
+
+  return (
+    <View style={{flex:1,padding:12}}>
+      <FlatList
+        data={leagues}
+        keyExtractor={(item)=>item.id.toString()}
+        renderItem={({item}) => (
+          <TouchableOpacity style={styles.card} onPress={()=>navigation.navigate("Fixtures",{leagueId:item.id})}>
+            <Text style={styles.name}>{item.name}</Text>
+            <Text>{item.location} • £{(item.entry_fee_pence/100).toFixed(2)}</Text>
+            <Button title="View fixtures" onPress={()=>navigation.navigate("Fixtures",{leagueId:item.id})}/>
+          </TouchableOpacity>
+        )}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  card:{padding:12,marginVertical:8,borderWidth:1,borderRadius:8},
+  name:{fontSize:16,fontWeight:"600"}
+});
