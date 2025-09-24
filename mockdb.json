@@ -1,0 +1,30 @@
+{
+  "leagues": [
+    {
+      "id": 1,
+      "name": "Chelmsford Friday 5s",
+      "location": "Chelmsford",
+      "entry_fee_pence": 1200,
+      "teams": [1,2],
+      "upcoming_matches": [1]
+    }
+  ],
+  "teams": [
+    {"id":1,"name":"Red Lions","captain":"Harry"},
+    {"id":2,"name":"Blue Sharks","captain":"Ewa"}
+  ],
+  "matches": [
+    {
+      "id":1,
+      "league_id":1,
+      "team_home_id":1,
+      "team_away_id":2,
+      "scheduled_at":"2025-10-04T19:30:00Z",
+      "field_location":"Park Lane 3",
+      "score_home":0,
+      "score_away":0,
+      "status":"scheduled"
+    }
+  ],
+  "users": []
+}
