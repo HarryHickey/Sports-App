@@ -1,0 +1,223 @@
+// Starter dataset so the UI feels alive the first time it loads.
+import { palette } from "../theme/colors";
+
+export const STAT_FIELDS = {
+  football: [
+    { key: "goals", label: "Goals" },
+    { key: "assists", label: "Assists" },
+    { key: "saves", label: "Saves" },
+  ],
+  darts: [
+    { key: "oneEighties", label: "180s" },
+    { key: "highCheckout", label: "High Checkout" },
+    { key: "average", label: "3-Dart Avg" },
+  ],
+};
+
+export const sampleData = {
+  leagues: [
+    {
+      id: "lg-football-1",
+      name: "Metro City Football League",
+      sport: "football",
+      color: palette.coral,
+      description: "Weekend warriors battling it out under the city lights.",
+    },
+    {
+      id: "lg-darts-1",
+      name: "Bright Flights Darts Tour",
+      sport: "darts",
+      color: palette.violet,
+      description: "Pub legends and sharp shooters chasing the bullseye!",
+    },
+  ],
+  teams: {
+    "tm-football-1": {
+      id: "tm-football-1",
+      name: "Metro Meteors",
+      leagueId: "lg-football-1",
+      badgeColor: "#FFB199",
+      players: ["pl-football-1", "pl-football-2", "pl-football-3", "pl-football-4"],
+    },
+    "tm-football-2": {
+      id: "tm-football-2",
+      name: "Skyline Strikers",
+      leagueId: "lg-football-1",
+      badgeColor: "#FF82A9",
+      players: ["pl-football-5", "pl-football-6", "pl-football-7", "pl-football-8"],
+    },
+    "tm-darts-1": {
+      id: "tm-darts-1",
+      name: "Neon Aces",
+      leagueId: "lg-darts-1",
+      badgeColor: "#9D4EDD",
+      players: ["pl-darts-1", "pl-darts-2", "pl-darts-3"],
+    },
+    "tm-darts-2": {
+      id: "tm-darts-2",
+      name: "Bullseye Bandits",
+      leagueId: "lg-darts-1",
+      badgeColor: "#4CC9F0",
+      players: ["pl-darts-4", "pl-darts-5", "pl-darts-6"],
+    },
+  },
+  players: {
+    "pl-football-1": {
+      id: "pl-football-1",
+      name: "Avery Sparks",
+      position: "Forward",
+      sport: "football",
+      teamId: "tm-football-1",
+    },
+    "pl-football-2": {
+      id: "pl-football-2",
+      name: "Kai River",
+      position: "Midfielder",
+      sport: "football",
+      teamId: "tm-football-1",
+    },
+    "pl-football-3": {
+      id: "pl-football-3",
+      name: "Jordan Blaze",
+      position: "Wing",
+      sport: "football",
+      teamId: "tm-football-1",
+    },
+    "pl-football-4": {
+      id: "pl-football-4",
+      name: "Miles Archer",
+      position: "Goalkeeper",
+      sport: "football",
+      teamId: "tm-football-1",
+    },
+    "pl-football-5": {
+      id: "pl-football-5",
+      name: "Riley Dash",
+      position: "Forward",
+      sport: "football",
+      teamId: "tm-football-2",
+    },
+    "pl-football-6": {
+      id: "pl-football-6",
+      name: "Logan Quill",
+      position: "Midfielder",
+      sport: "football",
+      teamId: "tm-football-2",
+    },
+    "pl-football-7": {
+      id: "pl-football-7",
+      name: "Sawyer Frost",
+      position: "Defender",
+      sport: "football",
+      teamId: "tm-football-2",
+    },
+    "pl-football-8": {
+      id: "pl-football-8",
+      name: "Phoenix Vale",
+      position: "Goalkeeper",
+      sport: "football",
+      teamId: "tm-football-2",
+    },
+    "pl-darts-1": {
+      id: "pl-darts-1",
+      name: "Luna Arrows",
+      position: "Right Hand",
+      sport: "darts",
+      teamId: "tm-darts-1",
+    },
+    "pl-darts-2": {
+      id: "pl-darts-2",
+      name: "Nova Flights",
+      position: "Left Hand",
+      sport: "darts",
+      teamId: "tm-darts-1",
+    },
+    "pl-darts-3": {
+      id: "pl-darts-3",
+      name: "Echo Dart",
+      position: "Captain",
+      sport: "darts",
+      teamId: "tm-darts-1",
+    },
+    "pl-darts-4": {
+      id: "pl-darts-4",
+      name: "Vega Aim",
+      position: "Right Hand",
+      sport: "darts",
+      teamId: "tm-darts-2",
+    },
+    "pl-darts-5": {
+      id: "pl-darts-5",
+      name: "Orion Flight",
+      position: "Left Hand",
+      sport: "darts",
+      teamId: "tm-darts-2",
+    },
+    "pl-darts-6": {
+      id: "pl-darts-6",
+      name: "Solstice Bull",
+      position: "Captain",
+      sport: "darts",
+      teamId: "tm-darts-2",
+    },
+  },
+  fixtures: {
+    "fx-football-1": {
+      id: "fx-football-1",
+      leagueId: "lg-football-1",
+      homeTeamId: "tm-football-1",
+      awayTeamId: "tm-football-2",
+      date: "2024-05-18T18:30:00.000Z",
+      venue: "Metro Arena",
+      status: "upcoming",
+      result: null,
+      playerStats: {},
+    },
+    "fx-football-2": {
+      id: "fx-football-2",
+      leagueId: "lg-football-1",
+      homeTeamId: "tm-football-2",
+      awayTeamId: "tm-football-1",
+      date: "2024-04-28T17:00:00.000Z",
+      venue: "Skyline Park",
+      status: "completed",
+      result: { home: 3, away: 3 },
+      playerStats: {
+        "tm-football-2": {
+          "pl-football-5": { goals: 2, assists: 0, saves: 0 },
+          "pl-football-6": { goals: 1, assists: 1, saves: 0 },
+          "pl-football-7": { goals: 0, assists: 1, saves: 0 },
+          "pl-football-8": { goals: 0, assists: 0, saves: 4 },
+        },
+        "tm-football-1": {
+          "pl-football-1": { goals: 2, assists: 0, saves: 0 },
+          "pl-football-2": { goals: 1, assists: 1, saves: 0 },
+          "pl-football-3": { goals: 0, assists: 1, saves: 0 },
+          "pl-football-4": { goals: 0, assists: 0, saves: 5 },
+        },
+      },
+    },
+    "fx-darts-1": {
+      id: "fx-darts-1",
+      leagueId: "lg-darts-1",
+      homeTeamId: "tm-darts-1",
+      awayTeamId: "tm-darts-2",
+      date: "2024-05-05T20:00:00.000Z",
+      venue: "Neon Alley",
+      status: "completed",
+      result: { home: 7, away: 5 },
+      playerStats: {
+        "tm-darts-1": {
+          "pl-darts-1": { oneEighties: 2, highCheckout: 148, average: 96 },
+          "pl-darts-2": { oneEighties: 1, highCheckout: 120, average: 92 },
+          "pl-darts-3": { oneEighties: 0, highCheckout: 101, average: 88 },
+        },
+        "tm-darts-2": {
+          "pl-darts-4": { oneEighties: 1, highCheckout: 134, average: 91 },
+          "pl-darts-5": { oneEighties: 0, highCheckout: 126, average: 89 },
+          "pl-darts-6": { oneEighties: 0, highCheckout: 118, average: 87 },
+        },
+      },
+    },
+  },
+};
